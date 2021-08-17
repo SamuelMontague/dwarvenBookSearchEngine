@@ -5,6 +5,7 @@ const typeDefs = gql`
         _id: ID
         authors: [String]
         bookId: String
+        description: String
         image: String
         link: String
         title: String
@@ -20,6 +21,14 @@ const typeDefs = gql`
         token: ID!
         user: User
     }
+    input SavedBookInput {
+        authors: [String]
+        description: String
+        bookId: String
+        image: String
+        link: String
+        title: String
+    }
     type Query {
         me: User
     }
@@ -29,14 +38,7 @@ const typeDefs = gql`
         saveBook(book: SavedBookInput): User
         removeBook(bookId: String!) : User
     }
-    input SavedBookInput {
-        authors: [String]
-        description: String
-        bookId: String
-        image: String
-        link: String
-        title: String
-    }
+    
 `;
 
 // export the typeDefs
